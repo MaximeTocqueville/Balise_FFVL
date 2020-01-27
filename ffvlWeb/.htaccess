@@ -1,0 +1,16 @@
+# Activer le module Rewrite
+RewriteEngine On 
+	
+# orienter les uri vers routeurJoueurs.php
+RewriteRule ^balises/?$ routeurBalise.php [NC,L]
+	
+# orienter convertir les extensions id de l'URI en paramètres de la requete
+RewriteRule ^mesures/(\d+)$ routeurMesure.php?id=$1
+RewriteRule ^balise/(\d+)$ routeurBalise.php?id=$1
+
+
+# orienter convertir les extensions id et du type de mesure selectionees de l'URI en paramètres de la requete
+RewriteRule ^mesures/(\d+)/date/(.*)$ routeurMesure.php?id=$1&date=$2
+
+# orienter convertir les extensions id et du type de mesure selectionees de l'URI en paramètres de la requete
+RewriteRule ^mesures/(\d+)/(.*)$ routeurMesure.php?id=$1&typeMesure=$2
